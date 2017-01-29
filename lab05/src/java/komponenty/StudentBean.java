@@ -67,14 +67,14 @@ public class StudentBean implements Serializable {
             return;
         }
         Class.forName("org.apache.derby.jdbc.ClientDriver");
-        this.conn = DriverManager.getConnection("jdbc:derby://localhost:1527/studenci", "app", "app");
+        this.conn = DriverManager.getConnection("jdbc:derby://localhost:1527/studenci", "test", "test");
     }
     
     public Result getAll() throws SQLException, ClassNotFoundException {
         try {
             open();
             Statement st = conn.createStatement();
-            ResultSet results = st.executeQuery("SELECT * FROM app.studenci ");
+            ResultSet results = st.executeQuery("SELECT * FROM studenci ");
             return ResultSupport.toResult(results);
         } finally {
             close();

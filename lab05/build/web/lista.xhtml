@@ -9,6 +9,15 @@
         <ui:composition template="./szablon.xhtml">
             <ui:define name="content">
                 <h2>Lista studentow</h2>
+                <f:view>
+                    <h:form>
+                        <h:dataTable value="#{studentBean.getAll()}" var="item">
+                            <h:column>
+                                <h:outputText value="#{item.nazwisko}"/>
+                            </h:column>
+                        </h:dataTable>
+                    </h:form>
+                </f:view>
             </ui:define>
         </ui:composition>
     </body>
