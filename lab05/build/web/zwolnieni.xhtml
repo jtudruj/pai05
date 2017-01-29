@@ -5,55 +5,12 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-    <h:head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <h:outputStylesheet name="/css/default.css"/>
-        <h:outputStylesheet name="/css/cssLayout.css"/>
-        <title>Facelets Template</title>
-    </h:head>
-
-    <h:body>
-
-        <div id="top">
-            <ui:insert name="top">
-                <center><h3>Baza studentow</h3></center>
-            </ui:insert>
-        </div>
-        <div>
-            <div id="left">
-                <f:view>
-                    <h:form>
-                        <h:commandButton
-                            value="Info"
-                            action="info"
-                            styleClass="przycisk" 
-                        />
-                        <h:commandButton
-                            value="Lista studentow"
-                            action="pokazListe"
-                            styleClass="przycisk"
-                        />
-                        <h:commandButton
-                            value="Zwolnieni z egzaminu"
-                            action="zwolnieniZEgzaminu"
-                            styleClass="przycisk"
-                        />
-                    </h:form>
-                </f:view>
-            </div>
-            <div id="content" class="left_content">
-                <ui:insert name="content">
-                    <h2>Lista zwolnionych z egzaminu</h2>
-                    
-                </ui:insert>
-            </div>
-        </div>
-        <div id="bottom">
-            <ui:insert name="bottom">
-                PAI 2017
-            </ui:insert>
-        </div>
-
-    </h:body>
+    <body>
+        <ui:composition template="./szablon.xhtml">
+            <ui:define name="content">
+                <h2>Lista zwolnionych z egzaminu</h2>
+            </ui:define>
+        </ui:composition>
+    </body>
 
 </html>
