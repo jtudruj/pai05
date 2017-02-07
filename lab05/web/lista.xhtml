@@ -11,7 +11,7 @@
                 <h2>Lista studentow</h2>
                 <f:view>
                     <h:form>
-                        <h:dataTable value="#{studentBean.getAll()}" var="item">
+                        <h:dataTable value="#{studentBean.getBest()}" var="item">
                             <h:column>
                                 <h:outputText value="#{item.nazwisko}"/>
                             </h:column>

@@ -80,6 +80,19 @@ public class StudentBean implements Serializable {
             close();
         }
     }
+    
+    public Result getBest() throws SQLException, ClassNotFoundException {
+        try {
+            open();
+            Statement st = conn.createStatement();
+            ResultSet results = st.executeQuery(
+                    "SELECT * FROM studenci WHERE cast(srednia as decimal(9,2)) > 4.5"
+            );
+            return ResultSupport.toResult(results);
+        } finally {
+            close();
+        }
+    }
 
     private void close() throws SQLException {
         if (conn == null) {
