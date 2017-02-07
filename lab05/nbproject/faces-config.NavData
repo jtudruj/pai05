@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scene Scope="Project" version="2">
     <Scope Scope="Faces Configuration Only"/>
-    <Scope Scope="Project"/>
+    <Scope Scope="Project">
+        <Node id="lista.xhtml" x="114" y="110" zoom="true"/>
+        <Node id="index.xhtml" x="596" y="538" zoom="true"/>
+        <Node id="details.jsp" x="1191" y="85" zoom="true"/>
+        <Node id="dodaj_studenta.xhtml" x="150" y="600" zoom="true"/>
+        <Node id="addCustomer.html" x="1203" y="318" zoom="true"/>
+        <Node id="index.html" x="883" y="157" zoom="true"/>
+        <Node id="zwolnieni.xhtml" x="353" y="381" zoom="true"/>
+        <Node id="lista.jsp" x="1361" y="161" zoom="true"/>
+        <Node id="index_1.xhtml" x="1374" y="125" zoom="true"/>
+        <Node id="szablon.xhtml" x="599" y="88" zoom="true"/>
+    </Scope>
     <Scope Scope="All Faces Configurations"/>
 </Scene>

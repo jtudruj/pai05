@@ -8,6 +8,7 @@ package komponenty;
 import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -22,7 +23,7 @@ public class StudentBean implements Serializable {
 
     private String nazwisko;
     private String pesel;
-    private double srednia;
+    private String srednia;
     private String email;
 
     private Connection conn;
@@ -43,11 +44,11 @@ public class StudentBean implements Serializable {
         this.pesel = pesel;
     }
 
-    public double getSrednia() {
+    public String getSrednia() {
         return srednia;
     }
 
-    public void setSrednia(double srednia) {
+    public void setSrednia(String srednia) {
         this.srednia = srednia;
     }
 
@@ -89,6 +90,30 @@ public class StudentBean implements Serializable {
                     "SELECT * FROM studenci WHERE cast(srednia as decimal(9,2)) > 4.5"
             );
             return ResultSupport.toResult(results);
+        } finally {
+            close();
+        }
+    }
+    
+    public void add() throws SQLException, ClassNotFoundException {
+        PreparedStatement ps = null;
+        int result;
+        
+        try {
+            open();
+            ps = conn.prepareStatement("INSERT INTO STUDENCI VALUES (?, ?, ?, ?)");
+            ps.setString(1, getPesel());
+            ps.setString(2, getNazwisko());
+            ps.setString(3, getEmail());
+            ps.setString(4, getSrednia());
+        } finally {
+            result = 0;
+        }
+        
+        try {
+            result = ps.executeUpdate();
+        } catch (SQLException e) {
+            result = 0;
         } finally {
             close();
         }

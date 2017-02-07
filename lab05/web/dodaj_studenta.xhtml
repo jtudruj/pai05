@@ -8,17 +8,18 @@
     <body>
         <ui:composition template="./szablon.xhtml">
             <ui:define name="content">
-                <h2>Lista zwolnionych z egzaminu</h2>
+                <h2>Dodaj studenta:</h2>
                 <f:view>
                     <h:form>
-                        <h:dataTable value="#{studentBean.getBest()}" var="item">
-                            <h:column>
-                                <h:outputText value="#{item.nazwisko}"/>
-                            </h:column>
-                            <h:column>
-                                <h:outputText value="#{item.srednia}"/>
-                            </h:column>
-                        </h:dataTable>
+                        Pesel: <h:inputText id="pesel" value="#{studentBean.pesel}" required="true" /> <br />
+                        Nazwisko: <h:inputText id="nazwisko" value="#{studentBean.nazwisko}" required="true" /> <br />
+                        Email: <h:inputText id="email" value="#{studentBean.email}" required="true" /> <br />
+                        Srednia: <h:inputText id="srednia" value="#{studentBean.srednia}" required="true" /> <br />
+                        <h:commandButton
+                            value="Dodaj studenta"
+                            styleClass="przycisk"
+                            action="#{studentBean.add()}" 
+                        />
                     </h:form>
                 </f:view>
             </ui:define>
