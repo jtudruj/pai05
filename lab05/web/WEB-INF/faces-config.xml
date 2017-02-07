@@ -31,6 +31,10 @@
             <from-outcome>pokazListe</from-outcome>
             <to-view-id>/lista.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>dodajStudenta</from-outcome>
+            <to-view-id>/dodaj_studenta.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/lista.xhtml</from-view-id>
@@ -46,10 +50,44 @@
             <from-outcome>pokazListe</from-outcome>
             <to-view-id>/lista.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>dodajStudenta</from-outcome>
+            <to-view-id>/dodaj_studenta.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <managed-bean>
         <managed-bean-name>studentBean</managed-bean-name>
         <managed-bean-class>komponenty.StudentBean</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>info</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>dodajStudenta</from-outcome>
+            <to-view-id>/dodaj_studenta.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/dodaj_studenta.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>dodajStudenta</from-outcome>
+            <to-view-id>/dodaj_studenta.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>pokazListe</from-outcome>
+            <to-view-id>/lista.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>zwolnieniZEgzaminu</from-outcome>
+            <to-view-id>/zwolnieni.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>info</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
 </faces-config>
