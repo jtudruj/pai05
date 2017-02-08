@@ -25,6 +25,23 @@ public class StudentBean implements Serializable {
     private String pesel;
     private String srednia;
     private String email;
+    private String result;
+
+    public String getResult() {
+        return result;
+    }
+
+    public void setResult(String result) {
+        this.result = result;
+    }
+
+    public Connection getConn() {
+        return conn;
+    }
+
+    public void setConn(Connection conn) {
+        this.conn = conn;
+    }
 
     private Connection conn;
 
@@ -97,8 +114,8 @@ public class StudentBean implements Serializable {
     
     public void add() throws SQLException, ClassNotFoundException {
         PreparedStatement ps = null;
-        int result;
-        
+        int localResult;
+        this.setResult("");
         try {
             open();
             ps = conn.prepareStatement("INSERT INTO STUDENCI VALUES (?, ?, ?, ?)");
@@ -107,13 +124,14 @@ public class StudentBean implements Serializable {
             ps.setString(3, getEmail());
             ps.setString(4, getSrednia());
         } finally {
-            result = 0;
+            localResult = 0;
         }
         
         try {
-            result = ps.executeUpdate();
+            localResult = ps.executeUpdate();
+            this.setResult("Student dodany do bazy!");
         } catch (SQLException e) {
-            result = 0;
+            this.setResult("Nie dodano studenta, wystapil blad!");
         } finally {
             close();
         }
